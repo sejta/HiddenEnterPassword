@@ -1,0 +1,32 @@
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.opensdf
+*.sdf
+*.db
+*.ipch
+*.pdb
+*.obj
+*.idb
+*.log
+*.tlog
+*.lastbuildstate
+*.cache
+*.ilk
+*.ncb
+
+# Build folders
+Debug/
+Release/
+x64/
+x86/
+
+# Others
+*.exe
+*.dll
+*.lib
+*.zip
+*.tar.gz
+*.7z
