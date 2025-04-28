@@ -1,4 +1,4 @@
-#include <windows.h>
+п»ї#include <windows.h>
 #include <tlhelp32.h>
 #include <shlobj.h>
 #include <fstream>
@@ -10,13 +10,13 @@
 
 using json = nlohmann::json;
 
-// Глобальные переменные
+// Р“Р»РѕР±Р°Р»СЊРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ
 std::wstring g_windowTitle;
 std::wstring g_password;
 int g_editCount = 0;
 bool g_passwordEntered = false;
 
-// Преобразование UTF-8 строки в std::wstring
+// РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ UTF-8 СЃС‚СЂРѕРєРё РІ std::wstring
 std::wstring Utf8ToWide(const std::string& str)
 {
     if (str.empty()) return std::wstring();
@@ -26,7 +26,7 @@ std::wstring Utf8ToWide(const std::string& str)
     return wstr;
 }
 
-// Отправка текста через эмуляцию нажатий клавиш
+// РћС‚РїСЂР°РІРєР° С‚РµРєСЃС‚Р° С‡РµСЂРµР· СЌРјСѓР»СЏС†РёСЋ РЅР°Р¶Р°С‚РёР№ РєР»Р°РІРёС€
 void SendText(const std::wstring& text)
 {
     for (wchar_t ch : text) {
@@ -47,7 +47,7 @@ void SendText(const std::wstring& text)
     }
 }
 
-// Установка автозапуска программы
+// РЈСЃС‚Р°РЅРѕРІРєР° Р°РІС‚РѕР·Р°РїСѓСЃРєР° РїСЂРѕРіСЂР°РјРјС‹
 void SetAutoRun()
 {
     HKEY hKey;
@@ -62,7 +62,7 @@ void SetAutoRun()
     }
 }
 
-// Загрузка конфигурации из файла
+// Р—Р°РіСЂСѓР·РєР° РєРѕРЅС„РёРіСѓСЂР°С†РёРё РёР· С„Р°Р№Р»Р°
 bool LoadConfig()
 {
     std::ifstream file("config.json", std::ios::binary);
@@ -88,7 +88,7 @@ bool LoadConfig()
     return true;
 }
 
-// Перебор дочерних окон
+// РџРµСЂРµР±РѕСЂ РґРѕС‡РµСЂРЅРёС… РѕРєРѕРЅ
 BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
 {
     wchar_t className[256];
@@ -112,7 +112,7 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
     return TRUE;
 }
 
-// Перебор всех окон
+// РџРµСЂРµР±РѕСЂ РІСЃРµС… РѕРєРѕРЅ
 BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)
 {
     wchar_t title[512];
@@ -133,7 +133,7 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)
     return TRUE;
 }
 
-// Проверка наличия окна
+// РџСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ РѕРєРЅР°
 bool IsWindowPresent()
 {
     bool found = false;
